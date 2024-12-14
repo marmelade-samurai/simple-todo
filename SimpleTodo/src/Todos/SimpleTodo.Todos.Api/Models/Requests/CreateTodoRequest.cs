@@ -1,3 +1,3 @@
 ﻿namespace SimpleTodo.Todos.Api.Models.Requests;
 
-public class CreateTodoRequest();
+public record CreateTodoRequest(string Title, string Description);
