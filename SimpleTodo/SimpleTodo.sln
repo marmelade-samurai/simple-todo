@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F14CDFCA-C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Todos", "Todos", "{E65F3424-1FF5-45A8-8863-EE5978D68E91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTodo.Todos.Api", "src\Todos\SimpleTodo.Todos.Api\SimpleTodo.Todos.Api.csproj", "{F40367C2-E628-4D8D-9305-919854E0CCAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTodo.Todos.Api", "src\Todos\SimpleTodo.Todos.Api\SimpleTodo.Todos.Api.csproj", "{F40367C2-E628-4D8D-9305-919854E0CCAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

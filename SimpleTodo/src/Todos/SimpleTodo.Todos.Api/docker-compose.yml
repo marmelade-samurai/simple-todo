@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  SimpleTodo-Todos-Service:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    ports:
+    - "8080:80"
+    deploy:
+        resources:
+            limits:
+                  cpus: "0.5"
+                  memory: "256m"
+    container_name: simpletodo-todos-service
+    labels:
+        service: "Todos"
+    depends_on:
+        - SimpleTodo-Todos-MongoDb
+        - SimpleTodo-Todos-Cache
+    restart: always
+
+  SimpleTodo-Todos-NoSqlDb:
+    image: mongo:lates
+    container_name: simpletodo-todos-nosql-db
+    ports:
+    - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+    - todos-service-volume:/data/db 
+    labels:
+        service: "Todos"
+    restart: always
+
+  SimpleTodo-Todos-Cache:
+    image: redis:lates
+    container_name: simpletodo-todos-cache
+    ports:
+    - "6379:6379"
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_USER=${REDIS_USER}
+      - REDIS_USER_PASSWORD=${REDIS_USER_PASSWORD}
+    labels:
+        service: "Todos"
+    restart: always
+
+volumes:
+    todos-service-volume:    
+  
